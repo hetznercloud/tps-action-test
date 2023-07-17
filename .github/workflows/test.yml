@@ -1,20 +1,18 @@
-name: CI
+name: Test
 
 on:
-  pull_request: {}
-  push:
-    branches: [main]
+  workflow_dispatch:
+    secrets:
+      hcloud-token:
+        required: true
 
 jobs:
   test:
-    # permissions:
-    #   id-token: write
     runs-on: ubuntu-latest
 
+    env:
+      HCLOUD_TOKEN: ${{ secrets.hcloud-token }}
     steps:
-      - name: Run tps-action
-        uses: hetznercloud/tps-action@main
-
       - name: Check out repository
         uses: actions/checkout@v3
 
