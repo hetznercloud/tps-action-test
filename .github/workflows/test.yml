@@ -10,11 +10,13 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
-    env:
-      HCLOUD_TOKEN: ${{ secrets.hcloud-token }}
+    permissions:
+      id-token: write
+
     steps:
-      - name: Check out repository
-        uses: actions/checkout@v3
+      - uses: hetznercloud/tps-action@main
+
+      - uses: actions/checkout@v3
 
       - uses: 3bit/setup-hcloud@v2
 
