@@ -13,5 +13,7 @@ jobs:
         uses: peter-evans/slash-command-dispatch@v3
         with:
           token: ${{ secrets.PAT }}
+          issue-type: pull-request
           commands: |
             test
+          dispatch-type: workflow

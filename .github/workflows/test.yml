@@ -4,8 +4,7 @@ on:
   push:
     branches: [main]
 
-  repository_dispatch:
-    types: [test-command]
+  workflow_dispatch:
 
 jobs:
   test:
