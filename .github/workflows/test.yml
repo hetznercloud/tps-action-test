@@ -18,6 +18,8 @@ jobs:
     permissions:
       id-token: write
 
+    environment: integration
+
     steps:
       - uses: hetznercloud/tps-action@main
 
